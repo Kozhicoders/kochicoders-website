@@ -1,5 +1,5 @@
 ---
-date: 2024-01-02
+date: 2025-01-02
 title: Old Event
 imageUrl: /images/favicon.png
 ---

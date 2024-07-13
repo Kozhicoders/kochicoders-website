@@ -37,11 +37,7 @@ export default defineUserConfig({
     navbar: [
       '/',
       {
-        text: 'About',
-        link: '/about',
-      },
-      {
-        text: 'Upcoming Events',
+        text: 'All Events',
         link: '/event/',
       },
       {
