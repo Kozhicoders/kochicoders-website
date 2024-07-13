@@ -2,6 +2,8 @@ import { blogPlugin } from '@vuepress/plugin-blog'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 export default defineUserConfig({
   lang: 'en-US',
@@ -11,6 +13,8 @@ export default defineUserConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/images/favicon.png' }],
+    ['link', { rel: 'stylesheet', href: '/dist/index.css' }],
+
     // Import the corresponding link
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     [
@@ -50,6 +54,8 @@ export default defineUserConfig({
   }),
 
   plugins: [
+    tailwindcss(),
+    autoprefixer(),
     blogPlugin({
       // Only files under posts are articles
       filter: ({ filePathRelative }) =>
