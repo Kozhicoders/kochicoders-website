@@ -4,7 +4,12 @@ module.exports = {
     './docs/**/*.md'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#74BC49",
+        secondary: "#00ACE3",
+      }
+    },
   },
   plugins: [],
 }
