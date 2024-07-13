@@ -1,2 +1,2 @@
-## Hhow to run 
+## How to run 
 npm run docs:dev

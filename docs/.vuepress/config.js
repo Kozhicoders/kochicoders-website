@@ -6,30 +6,28 @@ import { viteBundler } from '@vuepress/bundler-vite'
 export default defineUserConfig({
   lang: 'en-US',
 
-  title: 'VuePress',
-  description: 'My first VuePress Site',
+  title: 'Kozhicoders',
+  description: 'Technology from the shores of Malabar',
+
+  head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
 
   theme: defaultTheme({
-    logo: 'https://vuejs.press/images/hero.png',
+    logo: '/images/favicon.png',
 
     navbar: [
       '/',
       {
-        text: 'Article',
+        text: 'About',
         link: '/article/',
       },
       {
-        text: 'Category',
+        text: 'Upcoming Events',
         link: '/category/',
       },
       {
-        text: 'Tag',
+        text: 'Join Us',
         link: '/tag/',
-      },
-      {
-        text: 'Timeline',
-        link: '/timeline/',
-      },
+      }
     ],
   }),
 
