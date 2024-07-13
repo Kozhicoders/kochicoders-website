@@ -42,7 +42,7 @@ export default defineUserConfig({
       },
       {
         text: 'Upcoming Events',
-        link: '/category/',
+        link: '/events',
       },
       {
         text: 'Join Us',
@@ -55,7 +55,7 @@ export default defineUserConfig({
     blogPlugin({
       // Only files under posts are articles
       filter: ({ filePathRelative }) =>
-        filePathRelative ? filePathRelative.startsWith('posts/') : false,
+        filePathRelative ? filePathRelative.startsWith('/') : false,
 
       // Getting article info
       getInfo: ({ frontmatter, title, data }) => ({
