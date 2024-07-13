@@ -648,6 +648,30 @@ video {
   display: none;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
+}
+
+.max-w-\[600px\] {
+  max-width: 600px;
+}
+
+.max-w-32 {
+  max-width: 8rem;
+}
+
 .flex-shrink {
   flex-shrink: 1;
 }
