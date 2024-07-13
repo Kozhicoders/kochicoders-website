@@ -42,7 +42,7 @@ export default defineUserConfig({
       },
       {
         text: 'Upcoming Events',
-        link: '/events',
+        link: '/event/',
       },
       {
         text: 'Join Us',
@@ -55,12 +55,14 @@ export default defineUserConfig({
     blogPlugin({
       // Only files under posts are articles
       filter: ({ filePathRelative }) =>
-        filePathRelative ? filePathRelative.startsWith('/') : false,
+        filePathRelative ? filePathRelative.startsWith('events/') : false,
 
       // Getting article info
       getInfo: ({ frontmatter, title, data }) => ({
         title,
-        author: frontmatter.author || '',
+        imageUrl: frontmatter.imageUrl || null,
+        description: frontmatter.description || null,
+        registrationLink: frontmatter.registrationLink || null,
         date: frontmatter.date || null,
         category: frontmatter.category || [],
         tag: frontmatter.tag || [],
@@ -70,6 +72,67 @@ export default defineUserConfig({
             ? frontmatter.excerpt
             : data?.excerpt || '',
       }),
+
+      category: [
+        {
+          key: 'category',
+          getter: (page) => page.frontmatter.category || [],
+          layout: 'Category',
+          itemLayout: 'Category',
+          frontmatter: () => ({
+            title: 'Categories',
+            sidebar: false,
+          }),
+          itemFrontmatter: (name) => ({
+            title: `Category ${name}`,
+            sidebar: false,
+          }),
+        },
+        {
+          key: 'tag',
+          getter: (page) => page.frontmatter.tag || [],
+          layout: 'Tag',
+          itemLayout: 'Tag',
+          frontmatter: () => ({
+            title: 'Tags',
+            sidebar: false,
+          }),
+          itemFrontmatter: (name) => ({
+            title: `Tag ${name}`,
+            sidebar: false,
+          }),
+        },
+      ],
+
+      type: [
+        {
+          key: 'event',
+          // Remove archive articles
+          filter: (page) => !page.frontmatter.archive,
+          layout: 'Event',
+          frontmatter: () => ({
+            title: 'Events',
+            sidebar: false,
+          }),
+          // Sort pages with time and sticky
+          sorter: (pageA, pageB) => {
+            if (pageA.frontmatter.sticky && pageB.frontmatter.sticky)
+              return pageB.frontmatter.sticky - pageA.frontmatter.sticky
+
+            if (pageA.frontmatter.sticky && !pageB.frontmatter.sticky) return -1
+
+            if (!pageA.frontmatter.sticky && pageB.frontmatter.sticky) return 1
+
+            if (!pageB.frontmatter.date) return 1
+            if (!pageA.frontmatter.date) return -1
+
+            return (
+              new Date(pageB.frontmatter.date).getTime() -
+              new Date(pageA.frontmatter.date).getTime()
+            )
+          },
+        },
+      ],
       hotReload: true,
     }),
   ],
