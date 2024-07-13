@@ -1,5 +1,6 @@
 ## How to run 
-npm run docs:dev
+`npm run docs:dev`
+`npm run tailwind:watch `
 
 ## How to add a new page
 Refer `.vuepress/sample.md` file
