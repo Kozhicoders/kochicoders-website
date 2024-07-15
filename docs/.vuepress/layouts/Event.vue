@@ -1,7 +1,7 @@
 <script setup>
 import { useBlogType } from '@vuepress/plugin-blog/client'
 import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
-
+import { withBase } from 'vuepress/client'
 const events = useBlogType('event')
 </script>
 
@@ -13,7 +13,7 @@ const events = useBlogType('event')
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
                     <div v-for="(event, index) in events.items" :key="index"
                         class="border rounded-lg mb-6 px-4 py-4 hover:scale-105 transition duration-300">
-                        <img :src="event.info?.imageUrl" class="w-full mx-auto h-64 object-cover" />
+                        <img :src="withBase(event.info?.imageUrl)" class="w-full mx-auto h-64 object-cover" />
                         <div class="mb-2 font-semibold mt-4">{{ event.info?.title }}</div>
                         <hr>
                         <div class="my-2 text-sm">{{ new Date(event.info?.date).toLocaleDateString('en-US',

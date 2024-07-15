@@ -2,6 +2,7 @@
 import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 import Footer from '../components/Footer.vue'
 import { useBlogType } from '@vuepress/plugin-blog/client'
+import { withBase } from 'vuepress/client'
 
 const events = useBlogType('event')
 
@@ -16,7 +17,7 @@ const upcomingEvents = (events) => {
     <template #page>
       <main class="page max-w-3xl mx-auto mt-16  pt-12 px-6 min-h-screen">
         <div class="text-secondary font-bold text-xl mt-16 mb-3">
-          <img src="/images/favicon.png" class="w-48 mx-auto h-48" />
+          <img :src="withBase('/images/favicon.png')" class="w-48 mx-auto h-48" />
         </div>
 
         <div class="mb-12">
@@ -46,7 +47,7 @@ const upcomingEvents = (events) => {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
           <div v-for="(event, index) in upcomingEvents(events.items)" :key="index"
             class="border rounded-lg mb-6 px-4 py-4 hover:scale-105 transition duration-300">
-            <img :src="event.info?.imageUrl" class="w-full mx-auto h-64 object-cover" />
+            <img :src="withBase(event.info?.imageUrl)" class="w-full mx-auto h-64 object-cover" />
             <div class="mb-2 font-semibold mt-4">{{ event.info?.title }}</div>
             <hr>
             <div class="my-2 text-sm">{{ new Date(event.info?.date).toLocaleDateString('en-US',
