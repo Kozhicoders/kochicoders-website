@@ -5,7 +5,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
   lang: 'en-US',
-  base: '/',
+  base: '/kochicoders-website/',
   title: '',
   description: 'Technology from the shores of Malabar',
 
