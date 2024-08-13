@@ -11,7 +11,7 @@ export default defineUserConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/images/favicon.png' }],
-    ['link', { rel: 'stylesheet', href: '/kochicoders-website/dist/index.css' }],
+    ['link', { rel: 'stylesheet', href: '/dist/index.css' }],
 
     // Import the corresponding link
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
