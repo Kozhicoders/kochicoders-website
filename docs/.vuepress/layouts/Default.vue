@@ -43,7 +43,10 @@ const upcomingEvents = (events) => {
           developers in Kozhikode.
         </div> -->
 
-        <div class="text-center mt-12 mb-4  mb-2">Upcoming vents</div>
+        <div class="text-center mt-12 mb-4  mb-2">Upcoming Events</div>
+        <div v-if="upcomingEvents(events.items).length === 0" class="text-center text-lg font-semibold mt-8">
+          Stay tuned for upcoming events!
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
           <div v-for="(event, index) in upcomingEvents(events.items)" :key="index"
             class="border rounded-lg mb-6 px-4 py-4 hover:scale-105 transition duration-300">
